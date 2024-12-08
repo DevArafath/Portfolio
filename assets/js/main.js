@@ -1,5 +1,6 @@
-$(document).ready(function () {   
 
+$(document).ready(function () {  
+    
     // Get the "Go to Top" button
     const goToTopButton = document.getElementById("goToTop");    
 
@@ -45,27 +46,33 @@ $(document).ready(function () {
     whatsappButton.onclick = openWhatsApp;
 
 
-    // Change background image based on time of day #######################
-    const heroSection = document.querySelector(".hero");
-    const morningImage = "./assets/img/morning.jpg";
-    const afternoonImage = ".assets/img/afternoon.jpg";
-    const eveningImage = ".assets/img/evening.jpg";
-    const nightImage = ".assets/img/night.jpg";
+    // // Change the background image of the hero section based on the time of day
+    // var heroSection = $('.hero');
 
-    const currentHour = new Date().getHours();
+    // // Get the current hour
+    // var currentHour = new Date().getHours();
+    
+    // // Define the images for different times of the day
+    // var morningImage = 'url("./assets/img/morning.jpg")';
+    // var afternoonImage = 'url("../assets/img/afternoon.jpg")';
+    // var eveningImage = 'url("./assets/img/evening.jpg")';
+    // var nightImage = 'url("./assets/img/night.jpg")';
+    
+    // // Change the background image based on the current hour
+    // if (currentHour >= 6 && currentHour < 12) {
+    //     heroSection.css('background-image', morningImage);  // Morning (6 AM - 12 PM)
+    // } else if (currentHour >= 12 && currentHour < 18) {
+    //     heroSection.css('background-image', afternoonImage);  // Afternoon (12 PM - 6 PM)
+    // } else if (currentHour >= 18 && currentHour < 21) {
+    //     heroSection.css('background-image', eveningImage);  // Evening (6 PM - 9 PM)
+    // } else {
+    //     heroSection.css('background-image', nightImage);  // Night (9 PM - 6 AM)
+    // }
 
-    if (currentHour >= 6 && currentHour < 12) {
-        // Morning (6 AM - 12 PM)
-        heroSection.style.backgroundImage = `url('${morningImage}')`;
-    } else if (currentHour >= 12 && currentHour < 18) {
-        // Afternoon (12 PM - 6 PM)
-        heroSection.style.backgroundImage = `url('${afternoonImage}')`;
-    } else if (currentHour >= 18 && currentHour < 21) {
-        // Evening (6 PM - 9 PM)
-        heroSection.style.backgroundImage = `url('${eveningImage}')`;
-    } else {
-        // Night (9 PM - 6 AM)
-        heroSection.style.backgroundImage = `url('${nightImage}')`;
-    }
+
     
 });
+
+
+
+

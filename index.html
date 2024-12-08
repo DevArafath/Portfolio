@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
 
+    <!-- Jarallax CSS -->
+    <link rel="stylesheet" href="./assets/css/jarallax.min.css">
+
     <!-- Animate on Scroll CSS -->
     <!-- <link rel="stylesheet" href="./assets/css/aos.css"> -->
 
@@ -24,13 +27,57 @@
 </head>
 <body>
     
-    <?php
-        // navigation bar includes 
-        include('./includes/navbar.php');
-    ?>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <span class="brand-name">Mohamed Arafath <span class="dot">.01</span></span>
+                <!-- 02 B/W Logos for Mobile Screen -->
+                <img src="./assets/img/logo-b.png" alt="logo-black" class="logo-b">
+                <img src="./assets/img/logo-w.png" alt="logo-white" class="logo-w">
+            </a>
+            <!-- Custom Toggler -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('nav-open')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="hero" data-jarallax data-speed="0.2" class="jarallax">
+    <section id="home" class="hero jarallax" data-jarallax data-speed="0.5">
         <div class="container">
             <div class="row">
                 <div class="col-12 mx-auto">
@@ -40,51 +87,71 @@
                     <a id="whatsappButton" href="" class="btn btn-outline whatsapp-btn"><i class="fa-solid fa-user-tie me-2"></i> HIRE ME</a>
                     <!-- https://wa.me/+97477375047?text=Hi!%20I%20would%20like%20to%20hire%20you.%20Please%20let%20me%20know%20more%20about%20you. -->
                     <div class="social-icons">
-                        <a href="#" data-social="Mohamed Arafath | LinkedIn" style="--social-color:#0a66c2"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" data-social="DevArafath | GitHub" style="--social-color:#000"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohamed-arafath1/" target="_blank" data-social="Mohamed Arafath | LinkedIn" style="--social-color:#0a66c2"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/DevArafath" target="_blank" data-social="DevArafath | GitHub" style="--social-color:#000"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" data-social="@arafath.lk | Instagram" target="_blank" style="--social-color:#f502bb"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" data-social="@arafathofficial | X" target="_blank" style="--social-color:#000"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- ABOUT US SECTION -->
     <section id="about">
+        
         <div class="container">
             <div class="row">
                 <div class="col-12 intro text-center">
-                    <h2>Why to Choose Us?</h2>
+                    <h2 data-aos="fade-up">Why to Choose Us?</h2>
                     <div class="section-line">
                         <div class="thin-line"></div>
                         <div class="bold-line"></div>
                     </div>
                     <p>Arafa Design Studios is your creative partner, combining innovative web solutions with expert software engineering. We bring your vision to life with exceptional designs and a commitment to quality, creativity, and client satisfaction. Choose us to transform your ideas into extraordinary digital experiences.</p>
-                </div>
-                <div>
-
-                </div>
+                </div>                
             </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="jarallax vh-100" data-jarallax data-speed="0.5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-3 mx-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Web Development</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    <img class="jarallax-img" src="./assets/img/afternoon.jpg" alt="">                
+                </div>
+            </div>                      
         </div>
     </section>
 
-
-
+    
     <!-- !Button for Go-To Top of the Page -->
     <button id="goToTop"><i class="fa-solid fa-circle-arrow-up"></i></button>
+    <!-- End of Goto Top -->
 
     <!-- Bootstrap JS -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
 
     <!-- parralax scroll JS -->
-    <script src="./assets//js/jarallax.min.js"></script>
+    <script type="module" src="./assets//js/jarallax.min.js"></script>
 
     <!-- owl carousel JS -->
     <script src="./assets/js/owl.carousel.min.js"></script>
 
     <!-- Animate on Scroll JS -->
     <!-- <script src="./assets/js/aos.js"></script> -->
-
+    
     <!-- Custom JS -->
     <script src="./assets/js/main.js"></script>
     
