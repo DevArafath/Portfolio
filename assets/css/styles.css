@@ -1,0 +1,406 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap'); */
+
+/* Default styles */
+:root{
+    --brand-color: #000000;
+    --brand-color-rgb: 0, 0, 0;
+    --brand-color-light: #C0C0C0;
+    --brand-color-light-rgb: 103, 199, 241;
+
+    --dark: #212529;
+    --light: #ececec;
+
+    --font-base: 'TheDosis', sans-serif;
+
+    --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.08);
+    --transition: all 0.5s ease;
+}
+
+/* Resets & Default styles for custom elements ####################################################################################################*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-family: var(--font-base);
+    color: var(--dark);
+    background-color: var(--light);
+    height: 300vh;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
+    color: var(--dark);
+}
+
+a{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--brand-color);
+    transition: var(--transition);
+}
+a:hover{
+    color: var(--brand-color-light);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.bg-cover{
+    background-position: center !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Font styles ####################################################################################################*/
+.signature-text{
+    font-family: 'pen', cursive;
+}
+
+.pencil-text{
+    font-family: 'pencil', cursive;
+}
+
+/* Button styles ####################################################################################################*/
+.btn-brand{
+    background-color: var(--brand-color);
+    border:none;
+    color: #fff;
+    font-weight: bold;
+    padding: 7px 15px;
+    border-radius: 7px;
+    transition: var(--transition);
+}
+
+.btn-brand:hover{
+    background-color: var(--brand-color-light);
+}
+
+.btn-outline{
+    background: rgba( 255, 255, 255, 0.25 );
+    -webkit-backdrop-filter: blur( 4px );
+    backdrop-filter: blur( 4px );
+    border: 2px solid var(--brand-color);
+    color: var(--brand-color);
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 7px;
+    transition: var(--transition);
+}
+
+.btn-outline:hover{
+    background-color: var(--brand-color);
+    color: var(--light);
+}
+
+section{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.dot{
+    color: var(--brand-color-light);
+}
+
+/* Goto top button Styles ##################################################################################################*/
+#goToTop{
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 30px;  /* Distance from the right */
+    font-size: 25px;
+    display: none; /* Hidden by default */
+    background-color: var(--brand-color); /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 50%; /* Rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 1000;
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    transition: var(--transition);
+}
+
+#goToTop i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#goToTop:hover{
+    background-color: var(--brand-color-light); /* Darker shade on hover */
+}
+
+/* INTRO Styles for each section ####################################################################################################*/
+.intro{
+    margin-bottom: 50px;
+}
+
+.intro h2{
+    text-transform: uppercase;
+}
+
+.intro .section-line{
+    margin: 16px auto;
+    position: relative;
+    width: 300px;
+    height: 2px;
+}
+
+.intro .section-line .bold-line{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 7px;
+    border-radius: 25px;
+    background-color: var(--brand-color);
+}
+
+.intro .section-line .thin-line{
+    width: 100%;
+    height: 2px;
+    background-color: var(--brand-color-light);
+}
+
+.intro p{
+    font-weight: 600;
+    max-width: 768px;
+    margin: auto;
+}
+
+/* NAVBAR Styles ####################################################################################################*/
+.navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link{
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.navbar.scrolled{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--dark);
+}
+
+.navbar.scrolled .navbar-nav .nav-link:hover,
+.navbar.scrolled .navbar-nav .nav-link.active{
+    color: #ffffff;
+}
+
+/* Adding the Shadow only in Desktop view */
+@media screen and (min-width: 991px){
+    .navbar-nav .nav-link::after{
+        content: '';
+        display: block;
+        opacity: 0;
+        width: 100%;
+        height: 5px;
+        border-radius: 50%;
+        filter: blur(1.5px);
+        margin: auto;
+        background: var(--dark);
+        transition: var(--transition);
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active::after{
+        opacity: 0.2;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover::after{
+        opacity: 0.1;
+    }
+
+    .navbar.scrolled .navbar-nav .nav-link.active::after{
+        background: var(--light);
+        opacity: 0.2;
+    }
+
+    .navbar.scrolled .navbar-nav .nav-link:hover::after{
+        background: var(--light);
+        opacity: 0.1;
+    }
+}
+
+/* Add a White Glass Background for Navbar Tab and Mobiel Screen */
+@media screen and (max-width: 991px) {
+    .navbar{
+        z-index: 999;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        -webkit-backdrop-filter: blur( 2px );
+        backdrop-filter: blur( 2px );
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+.navbar-dark .navbar-nav .nav-link.active{
+    color: var(--brand-color);
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    /* font-size: 20px; */
+    color: var(--brand-color);
+}
+
+
+.navbar-nav:has(.nav-link:hover) .nav-link:not(:hover){
+    filter: blur(1.5px);
+}
+
+.navbar-brand .logo-b,
+.navbar-brand .logo-w{
+    width: 70px !important;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Hide the large logo on small screens and show the small logo */
+    .navbar-brand .brand-name {
+        display: none;
+    }
+    /* Default dispaly the black logo */
+    .navbar-brand .logo-b {
+        display: block;
+    }
+    .navbar.scrolled .navbar-brand .logo-w {
+        display: block;
+    }
+    .navbar.scrolled .navbar-brand .logo-b {
+        display: none;
+    }  
+}
+
+/* Navabr toggler animation */
+.navbar-toggler{
+    position: relative;
+    width: 42px;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+} 
+
+.navbar-toggler span{
+    position: absolute;
+    width: 50%;
+    height: 5px;
+    background: var(--brand-color);
+    transition: var(--transition);
+}
+
+.navbar.scrolled .navbar-toggler span{
+    background: var(--light);
+}
+
+.navbar-toggler span:nth-child(odd){
+    left: 0;
+    border-radius: 9px 0 0 9px;
+}
+
+.navbar-toggler span:nth-child(even){
+    left: 50%;
+    border-radius: 0 9px 9px 0;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(2){
+    top: 0;
+}
+.navbar-toggler span:nth-child(3),
+.navbar-toggler span:nth-child(4){
+    top: 13px;
+}
+.navbar-toggler span:nth-child(5),
+.navbar-toggler span:nth-child(6){
+    top: 26px;
+}
+
+.navbar-toggler.nav-open span:nth-child(1),
+.navbar-toggler.nav-open span:nth-child(6){
+    transform: rotate(45deg);
+}
+.navbar-toggler.nav-open span:nth-child(2),
+.navbar-toggler.nav-open span:nth-child(5){
+    transform: rotate(-45deg);
+}
+.navbar-toggler.nav-open span:nth-child(1){
+    top: 8px;
+    left: 5px;
+}
+.navbar-toggler.nav-open span:nth-child(2){
+    top: 8px;
+    left: calc(50% - 5px);
+}
+.navbar-toggler.nav-open span:nth-child(3){
+    left: -50%;
+    opacity: 0;
+}
+.navbar-toggler.nav-open span:nth-child(4){
+    left: 150%;
+    opacity: 0;
+}
+.navbar-toggler.nav-open span:nth-child(5){
+    top: 19px;
+    left: 5px;
+}
+.navbar-toggler.nav-open span:nth-child(6){
+    top: 19px;
+    left: calc(50% - 5px);
+}
+
+
+/* HERO SECTION Styles ####################################################################################################*/
+.hero {
+    background-image: url('../img/hero.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16,34,46,0.2);
+    z-index: -1;
+}
+
+.hero h1 {
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.hero h6 {
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+/* ABOUT US SECTION Styles ####################################################################################################*/
+

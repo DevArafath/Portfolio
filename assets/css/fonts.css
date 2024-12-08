@@ -1,0 +1,26 @@
+/* Main Font */
+@font-face {
+    font-family: 'TheDosis';
+    src: url('../fonts/dosis-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/dosis-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Signature Font */
+@font-face {
+    font-family: 'pen';
+    src: url(../fonts/tangerine-regular-webfont.woff2) format('woff2'),
+         url(../fonts/tangerine-regular-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Handwritten Font */
+@font-face {
+    font-family: 'pencil';
+    src: url(../fonts/sacramento-regular-webfont.woff2) format('woff2'),
+         url(../fonts/sacramento-regular-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
