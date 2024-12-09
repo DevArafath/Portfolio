@@ -69,8 +69,8 @@ $(document).ready(function () {
     //     heroSection.css('background-image', nightImage);  // Night (9 PM - 6 AM)
     // }
 
-
     
+
 });
 
 
