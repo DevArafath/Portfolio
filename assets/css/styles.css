@@ -106,8 +106,8 @@ img{
 }
 
 section{
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .dot{
@@ -575,16 +575,36 @@ section{
     z-index: -1;
 }
 
+/* Fact Count Box Styles with 3D tilt effects */
+.fact-box{
+    padding: 20px 10px;
+    transform-style: preserve-3d; /* Preserve 3D context for child elements */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+.fact-box:hover{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    background: rgba(157, 214, 252, 0.247);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.fact-box:hover .fact-content{
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    transform: translateZ(50px);
+}
+
 /* END ABOUT US SECTION Styles */
 /* Service Section Styles #################################################################################################### */
 .service-card{
     position: relative;
-    background: url('../img/service_card_bg.jpg');
+    background: var(--brand-color-light);
     background-position: center;
     background-size: cover;
     border-radius: 15px;
     overflow: hidden;
     z-index: 2;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .service-card:hover{
@@ -655,21 +675,5 @@ section{
     transform: translate(50%, -50%); /* Ensure it remains centered */
 }
 
-/* Fact Count Box Styles with 3D tilt effects */
-.fact-box{
-    padding: 20px 10px;
-    transform-style: preserve-3d; /* Preserve 3D context for child elements */
-    transition: all 0.3s ease; /* Smooth transition */
-}
-.fact-box:hover{
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    background: rgba(157, 214, 252, 0.247);
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
 
-.fact-box:hover .fact-content{
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-    transform: translateZ(50px);
-}
+
