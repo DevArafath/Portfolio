@@ -1,18 +1,18 @@
 // Get the current page path
-const currentPath = window.location.pathname;
+const currentPath = window.location.pathname.replace(/\/$/, ''); // Normalize trailing slashes
 const rootPath = '/'; // Adjust this if your site is in a subdirectory
 
-// Helper function to check if we're on index page
+// Helper function to check if we're on the index page
 function isIndexPage() {
     return currentPath === rootPath || 
         currentPath.endsWith('/index.html') || 
         currentPath.endsWith('/');
 }
 
-// Function to check if mobile menu is open
+// Function to check if the mobile menu is open
 function isMobileMenuOpen() {
     const navbarCollapse = document.querySelector('.navbar-collapse');
-    return navbarCollapse.classList.contains('show');
+    return navbarCollapse && navbarCollapse.classList.contains('show');
 }
 
 // Function to update active states
@@ -23,10 +23,10 @@ function updateActiveStates() {
     }
 
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     // First remove all active classes
     navLinks.forEach(link => link.classList.remove('active'));
-    
+
     // Handle portfolio page
     if (currentPath.includes('portfolio.html')) {
         const portfolioLink = document.querySelector('a.nav-link[href="portfolio.html"]');
@@ -35,39 +35,39 @@ function updateActiveStates() {
         }
         return;
     }
-    
+
     // Handle index page sections
     if (isIndexPage()) {
         const sections = document.querySelectorAll('section[id]');
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
         const scrollPosition = window.scrollY + navbarHeight + 50;
-        
-        // At the very top of the page, activate home
+
+        // At the very top of the page, activate the home link
         if (window.scrollY < 50) {
-            const homeLink = document.querySelector('a.nav-link[href="index.html#home"]');
+            const homeLink = document.querySelector('a.nav-link[href="#home"], a.nav-link[href="index.html#home"]');
             if (homeLink) {
                 homeLink.classList.add('active');
             }
             return;
         }
-        
+
         // Find which section we're currently in
         let currentSection = null;
-        
+
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - navbarHeight - 100; // Added extra offset
+            const sectionTop = section.offsetTop - navbarHeight - 100; // Adjust offset for better alignment
             const sectionBottom = sectionTop + section.offsetHeight;
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 currentSection = section;
             }
         });
-        
+
         if (currentSection) {
             const sectionId = currentSection.id;
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
-                // Check both formats: "#section" and "index.php#section"
                 if (href === `#${sectionId}` || href === `index.html#${sectionId}`) {
                     link.classList.add('active');
                 }
@@ -103,14 +103,14 @@ window.addEventListener('hashchange', updateActiveStates);
 document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
-    
+
     if (navbarToggler && navbarCollapse) {
         // Update active states when mobile menu closes
         navbarCollapse.addEventListener('hidden.bs.collapse', () => {
             updateActiveStates();
         });
-        
-        // Handle nav link clicks in mobile menu
+
+        // Handle nav link clicks in the mobile menu
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
