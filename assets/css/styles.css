@@ -651,6 +651,10 @@ section{
     height: 128px;
 }
 
+.img-static{
+    width: 150px;
+}
+
 .img-static,
 .img-animate {
     position: absolute;
