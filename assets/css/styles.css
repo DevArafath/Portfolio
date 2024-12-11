@@ -579,7 +579,9 @@ section{
 /* Service Section Styles #################################################################################################### */
 .service-card{
     position: relative;
-    background-color: var(--brand-color-light);
+    background: url('../img/service_card_bg.jpg');
+    background-position: center;
+    background-size: cover;
     border-radius: 15px;
     overflow: hidden;
     z-index: 2;
@@ -651,4 +653,23 @@ section{
 .service-card:hover .img-animate {
     opacity: 1;
     transform: translate(50%, -50%); /* Ensure it remains centered */
+}
+
+/* Fact Count Box Styles with 3D tilt effects */
+.fact-box{
+    padding: 20px 10px;
+    transform-style: preserve-3d; /* Preserve 3D context for child elements */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+.fact-box:hover{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    background: rgba(157, 214, 252, 0.247);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.fact-box:hover .fact-content{
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    transform: translateZ(50px);
 }
