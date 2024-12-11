@@ -5,7 +5,7 @@ const rootPath = '/'; // Adjust this if your site is in a subdirectory
 // Helper function to check if we're on index page
 function isIndexPage() {
     return currentPath === rootPath || 
-        currentPath.endsWith('/index.php') || 
+        currentPath.endsWith('/index.html') || 
         currentPath.endsWith('/');
 }
 
@@ -28,8 +28,8 @@ function updateActiveStates() {
     navLinks.forEach(link => link.classList.remove('active'));
     
     // Handle portfolio page
-    if (currentPath.includes('portfolio.php')) {
-        const portfolioLink = document.querySelector('a.nav-link[href="portfolio.php"]');
+    if (currentPath.includes('portfolio.html')) {
+        const portfolioLink = document.querySelector('a.nav-link[href="portfolio.html"]');
         if (portfolioLink) {
             portfolioLink.classList.add('active');
         }
@@ -44,7 +44,7 @@ function updateActiveStates() {
         
         // At the very top of the page, activate home
         if (window.scrollY < 50) {
-            const homeLink = document.querySelector('a.nav-link[href="index.php#home"]');
+            const homeLink = document.querySelector('a.nav-link[href="index.html#home"]');
             if (homeLink) {
                 homeLink.classList.add('active');
             }
@@ -68,7 +68,7 @@ function updateActiveStates() {
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
                 // Check both formats: "#section" and "index.php#section"
-                if (href === `#${sectionId}` || href === `index.php#${sectionId}`) {
+                if (href === `#${sectionId}` || href === `index.html#${sectionId}`) {
                     link.classList.add('active');
                 }
             });
