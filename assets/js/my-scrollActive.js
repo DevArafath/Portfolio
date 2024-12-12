@@ -1,3 +1,52 @@
+// <!-- NAVBAR -->
+// <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
+//     <div class="container">
+//         <a class="navbar-brand" href="index.html#home">
+//             <span class="brand-name">Mohamed Arafath <span class="dot">v.01</span></span>
+//             <!-- 02 B/W Logos for Mobile Screen -->
+//             <img src="./assets/img/logo-b.png" alt="logo-black" class="logo-b">
+//             <img src="./assets/img/logo-w.png" alt="logo-white" class="logo-w">
+//         </a>
+//         <!-- Custom Toggler -->
+//         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('nav-open')">
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//         </button>
+//         <div class="collapse navbar-collapse" id="navbarNav">
+//             <ul class="navbar-nav ms-auto">
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#home">Home</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#about">About</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#services">Services</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="portfolio.html">Portfolio</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#reviews">Reviews</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#pricing">Pricing</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="blog.html">Blog</a>
+//                 </li>
+//                 <li class="nav-item">
+//                     <a class="nav-link" href="index.html#contact">Contact</a>
+//                 </li>
+//             </ul>
+//         </div>
+//     </div>
+// </nav>
+
 // Get the current page path
 const currentPath = window.location.pathname;
 const rootPath = '/'; // Adjust this if your site is in a subdirectory
@@ -27,20 +76,20 @@ function updateActiveStates() {
     // First, remove all active classes
     navLinks.forEach(link => link.classList.remove('active'));
     
-    // Handle portfolio page
-    if (currentPath.includes('portfolio.html')) {
-        const portfolioLink = document.querySelector('a.nav-link[href="portfolio.html"]');
-        if (portfolioLink) {
-            portfolioLink.classList.add('active');
+    // Handle blog page
+    if (currentPath.includes('blog.html') || currentPath.endsWith('/blog/')) {
+        const blogLink = document.querySelector('a.nav-link[href="blog.html"]');
+        if (blogLink) {
+            blogLink.classList.add('active');
         }
         return;
     }
 
-    // Handle blog page
-    if (currentPath.includes('blog.html')) {
-        const blogLink = document.querySelector('a.nav-link[href="blog.html"]');
-        if (blogLink) {
-            blogLink.classList.add('active');
+    // Handle portfolio page
+    if (currentPath.includes('portfolio.html') || currentPath.endsWith('/portfolio/')) {
+        const portfolioLink = document.querySelector('a.nav-link[href="portfolio.html"]');
+        if (portfolioLink) {
+            portfolioLink.classList.add('active');
         }
         return;
     }
@@ -84,6 +133,7 @@ function updateActiveStates() {
         }
     }
 }
+
 
 // Debounce function to improve scroll performance
 function debounce(func, wait) {
