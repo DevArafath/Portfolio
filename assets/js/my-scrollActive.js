@@ -112,23 +112,38 @@ window.addEventListener('hashchange', updateActiveStates);
 document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
-    
+
     if (navbarToggler && navbarCollapse) {
-        // Update active states when mobile menu closes
-        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
-            updateActiveStates();
+        // Handle toggler click to toggle the 'nav-open' class
+        navbarToggler.addEventListener('click', () => {
+            const isOpen = navbarCollapse.classList.contains('show');
+            if (isOpen) {
+                navbarToggler.classList.remove('nav-open');
+            } else {
+                navbarToggler.classList.add('nav-open');
+            }
         });
-        
-        // Handle nav link clicks in mobile menu
+
+        // Remove 'nav-open' class when the mobile menu is closed
+        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+            navbarToggler.classList.remove('nav-open');
+        });
+
+        // Add 'nav-open' class when the mobile menu is opened
+        navbarCollapse.addEventListener('shown.bs.collapse', () => {
+            navbarToggler.classList.add('nav-open');
+        });
+
+        // Handle nav link clicks to close the menu
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (isMobileMenuOpen()) {
-                    // Close the mobile menu
+                if (navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                        toggle: false
+                        toggle: false,
                     });
                     bsCollapse.hide();
+                    navbarToggler.classList.remove('nav-open');
                 }
             });
         });
