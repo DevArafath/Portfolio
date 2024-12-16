@@ -32,7 +32,6 @@ $(document).ready(function () {
         });
     };
 
-
     // Get the "WhatsApp" button
     const whatsappButton = document.getElementById("whatsappButton");
     // WhatsApp function to open chat ######################################
@@ -46,32 +45,83 @@ $(document).ready(function () {
     whatsappButton.onclick = openWhatsApp;
 
 
-    // // Change the background image of the hero section based on the time of day
-    // var heroSection = $('.hero');
+    // Initialize Isotope
+    const $portfolioContainer = $('.portfolio-container').isotope({
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows',
+        getSortData: {
+            year: function(itemElem) {
+                return parseInt($(itemElem).attr('data-year'), 10);
+            }
+        }
+    });
 
-    // // Get the current hour
-    // var currentHour = new Date().getHours();
-    
-    // // Define the images for different times of the day
-    // var morningImage = 'url("./assets/img/morning.jpg")';
-    // var afternoonImage = 'url("../assets/img/afternoon.jpg")';
-    // var eveningImage = 'url("./assets/img/evening.jpg")';
-    // var nightImage = 'url("./assets/img/night.jpg")';
-    
-    // // Change the background image based on the current hour
-    // if (currentHour >= 6 && currentHour < 12) {
-    //     heroSection.css('background-image', morningImage);  // Morning (6 AM - 12 PM)
-    // } else if (currentHour >= 12 && currentHour < 18) {
-    //     heroSection.css('background-image', afternoonImage);  // Afternoon (12 PM - 6 PM)
-    // } else if (currentHour >= 18 && currentHour < 21) {
-    //     heroSection.css('background-image', eveningImage);  // Evening (6 PM - 9 PM)
-    // } else {
-    //     heroSection.css('background-image', nightImage);  // Night (9 PM - 6 AM)
-    // }
+    // Filter items on category button click
+    $('.portfolio-filter li').on('click', function() {
+        $('.portfolio-filter li').removeClass('filter-active');
+        $(this).addClass('filter-active');
+        
+        const filterValue = $(this).attr('data-filter');
+        applyFiltersAndSort(filterValue, $('#filter-portfolio-country').val());
+    });
 
-    
+    // Sort by Year
+    $('#sort-portfolio').on('change', function() {
+        applyCurrentFiltersAndSort();
+    });
+
+    // Filter by Country
+    $('#filter-portfolio-country').on('change', function() {
+        applyCurrentFiltersAndSort();
+    });
+
+    // Function to apply both filters and sorting
+    function applyCurrentFiltersAndSort() {
+        const categoryFilter = $('.portfolio-filter li.filter-active').attr('data-filter');
+        const countryFilter = $('#filter-portfolio-country').val();
+        applyFiltersAndSort(categoryFilter, countryFilter);
+    }
+
+    function applyFiltersAndSort(categoryFilter, countryFilter) {
+        // Combine category and country filters
+        let combinedFilter;
+        if (categoryFilter === '*' && countryFilter === '*') {
+            combinedFilter = '*';
+        } else if (categoryFilter === '*') {
+            combinedFilter = countryFilter;
+        } else if (countryFilter === '*') {
+            combinedFilter = categoryFilter;
+        } else {
+            combinedFilter = function() {
+                return $(this).is(categoryFilter) && $(this).is(countryFilter);
+            };
+        }
+
+        // Get sort settings
+        const sortValue = $('#sort-portfolio').val();
+        const sortOptions = {
+            filter: combinedFilter
+        };
+
+        // Apply sorting if not default
+        if (sortValue !== 'original-order') {
+            sortOptions.sortBy = 'year';
+            sortOptions.sortAscending = sortValue === 'ascending';
+        }
+
+        // Apply both filtering and sorting
+        $portfolioContainer.isotope(sortOptions);
+    }
+
+    // Initial sort and filter application
+    applyCurrentFiltersAndSort();
+
+
+
 
 });
+
+
 
 
 

@@ -64,6 +64,29 @@ img{
     box-shadow: var(--box-shadow);
 }
 
+/* Reset focus and hover styles for form controls*/
+select {
+    border: 1px solid transparent!important; /* Default border */
+    box-shadow: none!important; /* Remove extra shadow */
+    transition: none!important; /* Disable animations */
+}
+
+select:focus{
+    border: 1px solid var(--brand-color)!important;
+    outline: none!important;
+    box-shadow: none!important;
+}
+
+select option:hover {
+    background-color: var(--brand-color); 
+    color: #fff; 
+}
+
+select option:checked {
+    background-color: var(--brand-color); 
+    color: #fff;
+}
+
 /* Font styles ####################################################################################################*/
 .signature-text{
     font-family: 'pen', cursive;
@@ -501,6 +524,7 @@ section{
     transform: translateY(-39px) rotate(0);
     opacity: 1;
 }
+/* End of Hero Section styles */
 
 /* ABOUT US SECTION Styles ####################################################################################################*/
 .about-box{
@@ -595,6 +619,7 @@ section{
 }
 
 /* END ABOUT US SECTION Styles */
+
 /* Service Section Styles #################################################################################################### */
 .service-card{
     position: relative;
@@ -678,6 +703,132 @@ section{
     opacity: 1;
     transform: translate(50%, -50%); /* Ensure it remains centered */
 }
+
+/* END SERVICE SECTION Styles */
+
+/* Portfolio Sectinon Styles ############################################################################################*/
+.portfolio-filter{
+    padding: 0 0 20px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.portfolio-filter li{    
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 900;
+    margin: 5px 5px;
+    line-height: 1;
+    border: 1px solid var(--brand-color);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.portfolio-filter li:hover,
+.portfolio-filter li.filter-active{
+    background-color: var(--brand-color);
+    color: white;
+}
+
+.sort-container{
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+}
+
+.sort-container select{
+    font-weight: bolder;
+}
+
+/* Portfolio Cards Styles */
+.portfolio-card{
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--brand-color2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: var(--brand-color1);
+}
+
+.portfolio-card .card-image{
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card .card-image img{
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.portfolio-card:hover .card-image img{
+    transform: scale(1.1);
+    filter: blur(3px);
+}
+
+.card-hover-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.portfolio-card:hover .card-hover-content{
+    opacity: 1;
+}
+
+.portfolio-tags{
+    padding: 2px 7px;
+    border-radius: 7px;
+    background-color: var(--brand-color);
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.card-info{
+    text-align: center;
+    padding: 15px;
+}
+
+.card-info .client {
+    max-height: 1.4em; /* Restrict to one line of text */
+    line-height: 1.4em; /* Match line height to max height */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap; /* Prevent wrapping */
+    color: var(--brand-color);
+}
+
+.card-info .country{
+    font-size: 14px;
+    color: var(--brand-color-light);
+}
+
+.card-info a{
+    color: #2F5BA2;
+}
+.card-info a:hover{
+    color: #F6474E;
+}
+
 
 
 
