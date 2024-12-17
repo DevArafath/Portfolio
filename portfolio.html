@@ -28,11 +28,54 @@
 </head>
 <body>
     
-    <?php
-        // navigation bar includes 
-        include('./includes/navbar.php');
-    ?>
-
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html#home">
+                <span class="brand-name">Mohamed Arafath <span class="dot">v.01</span></span>
+                <!-- 02 B/W Logos for Mobile Screen -->
+                <img src="./assets/img/logo-b.png" alt="logo-black" class="logo-b">
+                <img src="./assets/img/logo-w.png" alt="logo-white" class="logo-w">
+            </a>
+            <!-- Custom Toggler -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('nav-open')">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#expirience">Expirience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
 
     <!-- !Button for Go-To Top of the Page -->
