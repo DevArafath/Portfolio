@@ -33,7 +33,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.php#home">
+            <a class="navbar-brand" href="index.html#home">
                 <span class="brand-name">Mohamed Arafath <span class="dot">v.01</span></span>
                 <!-- 02 B/W Logos for Mobile Screen -->
                 <img src="./assets/img/logo-b.png" alt="logo-black" class="logo-b">
@@ -51,28 +51,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#home">Home</a>
+                        <a class="nav-link" href="index.html#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#about">About</a>
+                        <a class="nav-link" href="index.html#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#services">Services</a>
+                        <a class="nav-link" href="index.html#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#portfolio">Portfolio</a>
+                        <a class="nav-link" href="index.html#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#reviews">Reviews</a>
+                        <a class="nav-link" href="index.html#reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#pricing">Pricing</a>
+                        <a class="nav-link" href="index.html#pricing">Pricing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                        <a class="nav-link" href="blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#contact">Contact</a>
+                        <a class="nav-link" href="index.html#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -353,27 +353,35 @@
                 </div>
 
                 <!-- Sort Dropdowns -->
-                <div class="sort-container row g-2">
+                <div class="sort-container d-flex flex-wrap align-items-end gap-3">
                     <!-- Select Sort Method -->
-                    <div class="col-12 col-md-auto">
-                        <label for="sort-portfolio" class="form-label"><b>Sort by</b> Year:</label>
-                        <select id="sort-portfolio" class="form-select d-inline-block w-auto">
+                    <div class="sort-item">
+                        <label for="sort-portfolio" class="form-label mb-1"><b>Sort by</b> Year:</label>
+                        <select id="sort-portfolio" class="form-select">
                             <option value="original-order">Default</option>
                             <option value="ascending">Year: Old First</option>
                             <option value="descending">Year: New First</option>
                         </select>
                     </div>                    
                     <!-- Select Country -->
-                    <div class="col-12 col-md-auto">
-                        <label for="filter-portfolio-country" class="form-label">Country:</label>
-                        <select id="filter-portfolio-country" class="form-select d-inline-block w-auto">
+                    <div class="sort-item">
+                        <label for="filter-portfolio-country" class="form-label mb-1">Country:</label>
+                        <select id="filter-portfolio-country" class="form-select">
                             <option value="*">All Countries</option>
                             <option value=".qatar">Qatar</option>
                             <option value=".uae">UAE</option>
                             <option value=".saudi_arabia">Saudi Arabia</option>
                             <option value=".kuwait">Kuwait</option>
-                            <!-- Add more countries as needed -->
                         </select>
+                    </div>
+                    <!-- Reset Button -->
+                    <div class="sort-item d-flex align-items-end">
+                        <button id="reset-filters" class="btn btn-danger">Reset</button>
+                    </div>
+                    <!-- Search Input -->
+                    <div class="sort-item flex-grow-1">
+                        <label for="portfolio-search" class="form-label mb-1">Search:</label>
+                        <input type="text" id="portfolio-search" class="form-control" placeholder="Search My Projects..." />
                     </div>
                 </div>
 
@@ -490,18 +498,110 @@
                             </div>
                         </div>
                     </div>
+                    <div class="portfolio-item web_development col-md-3 gy-3 uae" data-year="2023" data-country="UAE">
+                        <div class="portfolio-card h-100">
+                            <div class="card-image">
+                                <img src="./assets/img/web_project1.jpg" alt="Digital Project 1" class="img-fluid">
+                                <div class="card-hover-content d-flex flex-column align-items-center">
+                                    <p class="description">Brief details about the project</p>
+                                    <a href="#" class="btn btn-brand">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <span class="portfolio-tags">Web Development</span>
+                                <h5 class="client">Social Media Campaign Latest</h5>
+                                <p class="country">Dubai, UAE | 2023</p>
+                                <a href="#">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item app_development col-md-3 gy-3 saudi_arabia" data-year="2024" data-country="Saudi Arabia">
+                        <div class="portfolio-card h-100">
+                            <div class="card-image">
+                                <img src="./assets/img/photography_project1.jpg" alt="Digital Project 1" class="img-fluid">
+                                <div class="card-hover-content d-flex flex-column align-items-center">
+                                    <p class="description">Brief details about the project</p>
+                                    <a href="#" class="btn btn-brand">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <span class="portfolio-tags">App Development</span>
+                                <h5 class="client">Mobile Application</h5>
+                                <p class="country">Dubai, UAE | 2024</p>
+                                <a href="#">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item digital_marketing col-md-3 gy-3 uae" data-year="2021" data-country="Doha">
+                        <div class="portfolio-card h-100">
+                            <div class="card-image">
+                                <img src="./assets/img/social_project1.jpg" alt="Digital Project 1" class="img-fluid">
+                                <div class="card-hover-content d-flex flex-column align-items-center">
+                                    <p class="description">Brief details about the project</p>
+                                    <a href="#" class="btn btn-brand">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <span class="portfolio-tags">Digital Marketing</span>
+                                <h5 class="client">Social Media Campaign</h5>
+                                <p class="country">Doha, Qatar | 2021</p>
+                                <a href="#">More Details</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
             </div>
-            <div class="text-center mt-3">
-                <a href="portfolio.php" class="btn btn-brand">More Projects</a>
+            <div class="text-center mt-4">
+                <a href="portfolio.php" class="btn btn-brand"><i class="fa-solid fa-window-restore"></i> Discover All Works</a>
             </div>
 
         </div>
 
     </section>
     <!-- End of Portfolio Section -->
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews jarallax" data-jarallax data-speed="-0.3">
+        <div class="container">
+            
+            <div class="row px-3">
+                <div class="col-12 intro text-center bg-warning rounded-3 py-5">
+                    <h2>Words That Inspire</h2>
+                    <div class="section-line">
+                        <div class="thin-line"></div>
+                        <div class="bold-line"></div>
+                    </div>
+                    <p>Hear from satisfied clients who have experienced exceptional results. Their feedback reflects the quality, creativity, and dedication I bring to every project.</p>
+                </div>                
+            </div>
+            
+            <div class="row">
+                <div class="owl-carousel owl-theme" id="review-slider">
+                    <div class="review-item d-flex flex-column align-items-center justify-content-center">
+                        <img class="review-avatar mb-3" src="./assets//img/user1.png" alt="">
+                        <h4 class="text-black">User 01 Name Here</h4>
+                        <small class="text-black">Location, Date & Time</small>
+                        <p class="text-black">Review Goes Here. Some Sample Text</p>
+                    </div>
+                    <div class="review-item d-flex flex-column align-items-center justify-content-center">
+                        <img class="review-avatar mb-3" src="./assets//img/user2.png" alt="">
+                        <h4 class="text-black">User 02 Name Here</h4>
+                        <small class="text-black">Location, Date & Time</small>
+                        <p class="text-black">Review Goes Here. Some Sample Text</p>
+                    </div>
+                    <div class="review-item d-flex flex-column align-items-center justify-content-center">
+                        <img class="review-avatar mb-3" src="./assets//img/user3.png" alt="">
+                        <h4 class="text-black">User 03 Name Here</h4>
+                        <small class="text-black">Location, Date & Time</small>
+                        <p class="text-black">Review Goes Here. Some Sample Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Reviews Section -->
 
         
     <!-- !Button for Go-To Top of the Page -->
