@@ -4,7 +4,7 @@ const rootPath = '/';
 
 function isIndexPage() {
     return currentPath === rootPath || 
-        currentPath.endsWith('/index.html') || 
+        currentPath.endsWith('/index.php') || 
         currentPath.endsWith('/');
 }
 
@@ -17,8 +17,8 @@ function isMobileMenuOpen() {
 function updateSectionActive(sectionName) {
     const navLink = document.querySelector(`a.nav-link[href$="#${sectionName}"]`);
     
-    // Case 1: We're on the specific page (portfolio.html or service.html)
-    if (currentPath.includes(`${sectionName}.html`)) {
+    // Case 1: We're on the specific page (portfolio.php or service.php)
+    if (currentPath.includes(`${sectionName}.php`)) {
         if (navLink) {
             navLink.classList.add('active');
         }
@@ -69,8 +69,8 @@ function updateActiveStates() {
     // }
     
     // Handle blog page
-    if (currentPath.includes('blog.html')) {
-        const blogLink = document.querySelector('a.nav-link[href="blog.html"]');
+    if (currentPath.includes('blog.php')) {
+        const blogLink = document.querySelector('a.nav-link[href="blog.php"]');
         if (blogLink) {
             blogLink.classList.add('active');
         }
@@ -87,7 +87,7 @@ function updateActiveStates() {
         
         // At the very top of the page, activate home
         if (window.scrollY < 50) {
-            const homeLink = document.querySelector('a.nav-link[href="index.html#home"]');
+            const homeLink = document.querySelector('a.nav-link[href="index.php#home"]');
             if (homeLink) {
                 homeLink.classList.add('active');
             }
@@ -109,7 +109,7 @@ function updateActiveStates() {
             const sectionId = currentSection.id;
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === `#${sectionId}` || href === `index.html#${sectionId}`) {
+                if (href === `#${sectionId}` || href === `index.php#${sectionId}`) {
                     link.classList.add('active');
                 }
             });

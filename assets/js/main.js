@@ -1,7 +1,7 @@
 
 $(document).ready(function () {  
     
-    // Get the "Go to Top" button
+    // Get the "Go to Top" button ############################################################################################################################
     const goToTopButton = document.getElementById("goToTop");    
 
     // Functions to run on window scroll
@@ -24,7 +24,7 @@ $(document).ready(function () {
         }
     });
 
-    // Scroll to the top function for the "Go to Top" button ################
+    // Scroll to the top function for the "Go to Top" button ####################################################################################################################
     goToTopButton.onclick = function () {
         window.scrollTo({
             top: 0,
@@ -32,7 +32,8 @@ $(document).ready(function () {
         });
     };
 
-    // Get the "WhatsApp" button
+    // Get the "WhatsApp" button ################################################################################################################################################
+
     const whatsappButton = document.getElementById("whatsappButton");
     // WhatsApp function to open chat ######################################
     function openWhatsApp() {
@@ -45,15 +46,31 @@ $(document).ready(function () {
     whatsappButton.onclick = openWhatsApp;
 
 
-    // Initialize Isotope
+    // Initialize Isotope // ################################################################################################################################################
+
     const $portfolioContainer = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows',
+        filter: "*",
         getSortData: {
             year: function(itemElem) {
                 return parseInt($(itemElem).attr('data-year'), 10);
             }
         }
+    });
+
+    // Search functionality
+    $('#portfolio-search').on('keyup', function() {
+        const searchTerm = $(this).val().toLowerCase();
+
+        // Filter items based on search term (matching project title or description)
+        $portfolioContainer.isotope({
+            filter: function() {
+                const title = $(this).find('.client').text().toLowerCase();
+                const description = $(this).find('.country').text().toLowerCase();
+                return title.includes(searchTerm) || description.includes(searchTerm);
+            }
+        });
     });
 
     // Filter items on category button click
@@ -115,9 +132,42 @@ $(document).ready(function () {
 
     // Initial sort and filter application
     applyCurrentFiltersAndSort();
+    // ################################################################################################################################################
 
+    // Reset button functionality
+    $('#reset-filters').on('click', function() {
+        // Reset sort dropdown
+        $('#sort-portfolio').val('original-order');
+        
+        // Reset country filter
+        $('#filter-portfolio-country').val('*');
+        
+        // Clear search input
+        $('#portfolio-search').val('');
+        
+        // Reset category filter if it exists
+        $('.portfolio-filter li').removeClass('filter-active');
+        $('.portfolio-filter li[data-filter="*"]').addClass('filter-active');
+        
+        // Reset Isotope to default state
+        $portfolioContainer.isotope({
+            filter: '*',
+            sortBy: 'original-order'
+        });
+    });
 
-
+    // Owl Carouel for Review ################################################################################################################################################
+    $("#review-slider").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: true,
+        items: 1,
+        smartSpeed: 2000,
+        autoplay: true,
+        autoplayTimeout: 7000,
+    });
+    
 
 });
 

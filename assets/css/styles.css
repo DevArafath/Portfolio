@@ -49,6 +49,11 @@ a:hover{
     color: var(--brand-color-light);
 }
 
+section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
 img{
     max-width: 100%;
     height: auto;
@@ -62,6 +67,21 @@ img{
 
 .theme-shadow{
     box-shadow: var(--box-shadow);
+}
+
+.bg-brand{
+    background-color: var(--brand-color);
+}
+
+.bg-glass{
+    margin: auto;
+    padding: 25px 10px;
+    max-width: 800px;
+    background: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
 }
 
 /* Reset focus and hover styles for form controls*/
@@ -85,6 +105,10 @@ select option:hover {
 select option:checked {
     background-color: var(--brand-color); 
     color: #fff;
+}
+
+.fa-heart{
+    color: #F6474E
 }
 
 /* Font styles ####################################################################################################*/
@@ -126,11 +150,6 @@ select option:checked {
 .btn-outline:hover{
     background-color: var(--brand-color);
     color: var(--light);
-}
-
-section{
-    padding-top: 100px;
-    padding-bottom: 100px;
 }
 
 .dot{
@@ -410,7 +429,7 @@ section{
 
 /* HERO SECTION Styles ####################################################################################################*/
 .hero {
-    background-image: url('../img/hero.jpg');
+    background-image: url('../img/hero-bg.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -733,14 +752,40 @@ section{
     color: white;
 }
 
-.sort-container{
-    display: flex;
-    align-items: center;
-    min-height: 70px;
+/* Sort and Serach box styles */
+.sort-container {
+    background-color: var(--brand-color);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-.sort-container select{
-    font-weight: bolder;
+.sort-item {
+    min-width: 200px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .sort-item {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .sort-container {
+        gap: 1rem !important;
+    }
+
+    #reset-filters {
+        width: 100%;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .sort-item {
+        flex: 0 1 auto;
+    }
 }
 
 /* Portfolio Cards Styles */
@@ -749,9 +794,10 @@ section{
     overflow: hidden;
     border: 2px solid var(--brand-color2);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     transition: transform 0.3s;
-    background-color: var(--brand-color1);
+    /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
 }
 
 .portfolio-card .card-image{
@@ -819,7 +865,8 @@ section{
 
 .card-info .country{
     font-size: 14px;
-    color: var(--brand-color-light);
+    font-weight: 600;
+    color: var(--dark);
 }
 
 .card-info a{
@@ -828,6 +875,59 @@ section{
 .card-info a:hover{
     color: #F6474E;
 }
+
+/* Modal Styles for portfolio cards */
+.modal-content {
+    border-radius: 7px; 
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+/* Round the top image corners */
+.modal-header img {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+/* Style for close button */
+.modal-header .btn-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: var(--brand-color-light);
+    opacity: 0.2;
+    padding: 0.5rem;
+    border-radius: 50%;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+/* Reviews Section styles ####################################################################################################*/
+.reviews{
+    background-image: url('../img/review_bg.jpg');
+}
+
+.review-item{
+    max-width: 800px;
+    padding: 150px 10px;
+    margin: auto;
+    text-align: center;
+    background: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.review-item .review-avatar{
+    width: 100px!important;
+}
+
+
 
 
 
