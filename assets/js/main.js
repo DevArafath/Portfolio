@@ -156,17 +156,43 @@ $(document).ready(function () {
         });
     });
 
-    // Owl Carouel for Review ################################################################################################################################################
-    $("#review-slider").owlCarousel({
+    // Swiper JS Carouel for Review ################################################################################################################################################
+    var swiper = new Swiper(".swiper-review", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 3,
         loop: true,
-        margin: 10,
-        nav: false,
-        dots: true,
-        items: 1,
-        smartSpeed: 2000,
-        autoplay: true,
-        autoplayTimeout: 7000,
-    });
+        autoplay: {
+            delay: 3000,  // 3 seconds between slides
+            disableOnInteraction: false  // continues autoplay after user interaction
+        },
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 3,
+            }
+        }
+    }); 
     
 
 });
