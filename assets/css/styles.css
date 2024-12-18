@@ -85,6 +85,17 @@ img{
 }
 
 /* Reset focus and hover styles for form controls*/
+textarea,
+input{
+    box-shadow: none!important; /* Remove extra shadow */
+    resize: none!important;
+}
+
+textarea:focus,
+input:focus{
+    border: 2px solid var(--brand-color)!important;
+}
+
 select {
     border: 1px solid transparent!important; /* Default border */
     box-shadow: none!important; /* Remove extra shadow */
@@ -192,7 +203,7 @@ select option:checked {
 
 /* INTRO Styles for each section ####################################################################################################*/
 .intro{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .intro h2{
@@ -727,7 +738,7 @@ select option:checked {
 
 /* Portfolio Sectinon Styles ############################################################################################*/
 .portfolio-filter{
-    padding: 0 0 20px 0;
+    padding: 0 0 15px 0;
     margin: 0;
     text-align: center;
 }
@@ -906,9 +917,14 @@ select option:checked {
     opacity: 1;
 }
 
+/* Sub Section - for a Call to action button */
+.section-banner{
+    height: 200px;
+}
+
 /* Reviews Section styles ####################################################################################################*/
 .reviews{
-    background-image: url('../img/review_bg.jpg');
+    background-image: url('../img/review-bg.jpg');
 }
 
 /* Add these CSS rules */
@@ -953,10 +969,267 @@ select option:checked {
 
 /* Default color */
 .swiper-pagination-bullet{
-    width: 20px; /* Change to your desired size */
-    height: 20px; /* Change to your desired size */
-    border-radius: 50%; /* Keep the bullets round */
-    background-color: var(--light); /* Light gray for default */
+    width: 15px; /* Change to your desired size */
+    height: 15px; /* Change to your desired size */
+    border-radius: 30%; /* Keep the bullets round */
+    background-color: var(--brand-color); /* Light gray for default */
+}
+
+/* End of Review Section styles */
+
+/* Special Announcemetn Modal Styles */
+.btn-close-custom {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #000; /* Default color */
+    cursor: pointer;
+}
+
+.btn-close-custom:hover {
+    color: #ff0000; /* Change to desired hover color */
+}
+
+/* Contact Us Section styles  #####################################################################################################################*/
+.contact_form{
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    background-color: #3e3e3e;
+    border-radius: 10px;
+    transition: var(--transition);
+    transform-origin: center center;
+}
+
+.contact_form.closing{
+    animation: closeWindow 0.3s ease forwards;
+}
+.contact_form.opening{
+    animation: openWindow 0.3s ease forwards;
+}
+
+@keyframes closeWindow {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes openWindow {
+    0% {
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.contact_form {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.form-header {
+    background: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.form-header-left {
+    display: flex;
+    gap: 8px;
+}
+
+.screen-header-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color);
+}
+
+.form-body {
+    padding: 2rem;
+}
+
+.form-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.form-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.form-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    color: #444;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.5s;
+}
+
+.form-control:focus {
+    outline: none;
+}
+
+textarea.form-control {
+    min-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-image {
+        display: none;
+    }
+
+    .form-body {
+        padding: 1.5rem;
+    }
+}
+
+
+.message-box {
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+    transform: translateY(-20px);
+    opacity: 0;
+    }
+    to {
+    transform: translateY(0);
+    opacity: 1;
+    }
+}
+
+.message-header {
+    background: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.message-header span {
+    font-weight: 600;
+    color: #444;
+}
+
+.message-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.message-button.close {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.message-button.close::before,
+.message-button.close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: #666;
+    top: 50%;
+    left: 50%;
+    transition: background 0.2s;
+}
+
+.message-button.close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.message-button.close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.message-button.close:hover::before,
+.message-button.close:hover::after {
+    background: #333;
+}
+
+.message-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.message-body p {
+    color: #444;
+    line-height: 1.5;
+}
+
+.message-body strong {
+    color: #28a745;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.message-footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #eee;
 }
 
 
