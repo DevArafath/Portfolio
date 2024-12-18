@@ -164,7 +164,7 @@ $(document).ready(function () {
         slidesPerView: 3,
         loop: true,
         autoplay: {
-            delay: 3000,  // 3 seconds between slides
+            delay: 5000,  // 5 seconds between slides
             disableOnInteraction: false  // continues autoplay after user interaction
         },
         coverflowEffect: {
@@ -192,7 +192,68 @@ $(document).ready(function () {
                 slidesPerView: 3,
             }
         }
+    });
+    // Pause autoplay on hover
+    const swiperContainer = document.querySelector(".swiper-review");
+    swiperContainer.addEventListener("mouseenter", () => {
+        swiper.autoplay.stop(); // Stop autoplay
+    });
+
+    swiperContainer.addEventListener("mouseleave", () => {
+        swiper.autoplay.start(); // Resume autoplay
     }); 
+
+    // JS Code for Contact Us Form####################################################################################################################
+    const sendBtn = document.getElementById("send-btn");
+    const formScreen = document.getElementById("form-screen");
+    const messageBox = document.getElementById("message-box");
+    const closeMessage = document.getElementById("close-message");
+    const okButton = document.getElementById("ok-button");
+
+    // Function to show the message box and hide the form
+    sendBtn.addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent form submission
+        formScreen.classList.add('closing');
+        setTimeout(() => {
+            formScreen.classList.add('d-none');
+            messageBox.classList.remove('d-none');
+            resetFormFields();
+            setTimeout(() => {
+                messageBox.classList.add('show');
+            }, 50);
+        }, 300);
+    });
+
+    // Function to handle closing message and showing form
+    function closeMessageAndShowForm() {
+        messageBox.classList.remove('show');
+        setTimeout(() => {
+            messageBox.classList.add('d-none');
+            formScreen.classList.remove('d-none');
+            formScreen.classList.remove('closing');
+            formScreen.classList.add('opening');
+            setTimeout(() => {
+                formScreen.classList.remove('opening');
+            }, 300);
+        }, 300);
+    }
+
+    // Add click handlers for both close button and OK button
+    closeMessage.addEventListener("click", closeMessageAndShowForm);
+    okButton.addEventListener("click", closeMessageAndShowForm);
+
+    // Function to reset form fields
+    function resetFormFields() {
+        const formElements = document.querySelectorAll("input.form-control, textarea.form-control");
+        formElements.forEach(element => {
+            element.value = "";
+        });
+        
+        const form = document.querySelector("form");
+        if (form) {
+            form.reset();
+        }
+    }
     
 
 });
