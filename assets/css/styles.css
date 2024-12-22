@@ -146,6 +146,14 @@ select option:checked {
     background-color: var(--brand-color-light);
 }
 
+.btn-brand:disabled,
+.btn-sending {
+    background-color: var(--brand-color)!important;
+    color: var(--light)!important;
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
 .btn-outline{
     background: rgba( 255, 255, 255, 0.25 );
     -webkit-backdrop-filter: blur( 4px );
@@ -766,7 +774,6 @@ select option:checked {
 /* Sort and Serach box styles */
 .sort-container {
     background-color: var(--brand-color);
-    color: white;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -1230,6 +1237,30 @@ textarea.form-control {
     display: flex;
     justify-content: center;
     border-top: 1px solid #eee;
+}
+
+/* Footer Styles  #####################################################################################################################*/
+footer{
+    padding-top: 100px;
+    padding-bottom: 25px;
+}
+
+footer ul{
+    list-style: none;
+    margin-bottom: 0;
+}
+
+footer ul li{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+footer ul li:hover{
+    font-weight: 900;
+    color: var(--light)
 }
 
 
